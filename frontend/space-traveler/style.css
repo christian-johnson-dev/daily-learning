@@ -1,0 +1,16 @@
+:root {
+  --color-primary: #272727;
+  --color-white: #fff;
+}
+
+
+
+
+.box {
+  padding: 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+}
