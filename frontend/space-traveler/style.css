@@ -1,16 +1,258 @@
+/*---------------------------*/
+/*  Custom Properties        */
+/*---------------------------*/
+
 :root {
-  --color-primary: #272727;
-  --color-white: #fff;
+  /* colors */
+  --color-dark: 230 35% 7%;
+  --color-light: 231  77% 90%;
+  --color-white: 0, 0%, 100%;
+
+  /* font sizes */
+  --fs-900: 9.375rem; /* 150px */
+  --fs-800: 6.25rem; /* 100px */
+  --fs-700: 3.5rem; /* 56px */
+  --fs-600: 2rem; /* 32px */
+  --fs-500: 1.75rem; /* 28px */
+  --fs-400: 1.25rem; /* 20px */
+  --fs-300: 1rem; /* 16px */
+  --fs-200: 0.875rem; /* 14px */
+
+  /* font families */
+  --ff-serif: "Bellefair", serif;
+  --ff-sans-cond: "Barlow Condensed", sans-serif;
+  --ff-sans: "Barlow", sans-serif;
+
+  --gap: 1.5rem;
+  --max-width: 80rem;
+}
+
+/*--------------------*
+/*       RESET        */
+/*--------------------*/
+
+/*--- box sizing ---*/
+*,
+*::before, 
+*::after {
+  box-sizing: border-box;
+}
+
+/*--- margins ---*/
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+html:focus-within { scroll-behavior: smooth;}
+
+body {
+  font-family: var(--ff-sans);
+  font-size: var(--fs-400);
+  background-color: hsl(var(--color-dark));
+  color: hsl(var(--color-white));
+  min-height: 100vh; /* body will fill the viewport, even when empty*/
+  text-rendering: optimizeSpeed;
+  line-height: 1.5; /* reset the default line-height of 1.2  to be more accessible and readable*/
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a:not([class]) { text-decoration-skip-ink: auto; }
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* By default these do not inherit fonts */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*--- remove all animations and transitions for people that prefer not to see them ---*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*--------------------*/
+/*   Utility Classes  */
+/*--------------------*/
+
+/* ----- general -----*/
+.flex {
+  display: flex;
+  gap: var(--gap, 4rem)
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem)
+}
+
+.container {
+  max-width: var(--max-width, 80rem);
+  padding-inline: var(--gap, 1rem);
+  margin-inline: auto;
+}
+.flow > *:not(:first-child) {
+  margin-top: var(--flow-space, 1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ----- colors -----*/
+.bg-dark {background-color: hsl(var(--color-dark));}
+.bg-accent {background-color: hsl(var(--color-light));}
+.bg-white {background-color: hsl(var(--color-white));}
+
+.text-dark {color: hsl(var(--color-dark));}
+.text-accent {color: hsl(var(--color-light));}
+.text-white {color: hsl(var(--color-white));}
+
+/* ----- Typography: Font-Families -----*/
+
+.ff-serif {font-family: var(--ff-serif);}
+.ff-sans-cond {font-family: var(--ff-sans-cond);}
+.ff-sans {font-family: var(--ff-sans);}
+
+/* ----- Typography: Letter Spacing -----*/
+.letter-spacing-1 { letter-spacing: 4.75px;}
+.letter-spacing-2 { letter-spacing: 2.7px;}
+.letter-spacing-3 { letter-spacing: 2.35px;}
+
+/* ----- Typography: Case -----*/
+.uppercase { text-transform: uppercase;}
+.lowercase { text-transform: lowercase;}
+.capitalize { text-transform: capitalize;}
+
+/* ----- Typography: Font Sizes -----*/
+.fs-900 { font-size: var(--fs-900);}
+.fs-800 { font-size: var(--fs-800);}
+.fs-700 { font-size: var(--fs-700);}
+.fs-600 { font-size: var(--fs-600);}
+.fs-500 { font-size: var(--fs-500);}
+.fs-400 { font-size: var(--fs-400);}
+.fs-300 { font-size: var(--fs-300);}
+.fs-200 { font-size: var(--fs-200);}
+
+/* ----- Typography: Line Heights -----*/
+.fs-900,
+.fs-800,
+.fs-700,
+.fs600 {
+  line-height: 1.1;
+}
+
+
+.numbered-title {
+  font-size: var(--fs-500);
+  font-family: var(--ff-sans-cond);
+  color: hsl(var(--color-white));
+  letter-spacing: 4.75;
+  text-transform: uppercase;
+}
+
+.numbered-title span {
+  color: hsl(var(--color-white), 0.35);
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+
+/*--------------------*/
+/*     Components     */
+/*--------------------*/
+
+
+
+/* .large-button {
+  border-radius: 50%;
+  border: 0;
+  padding: 3rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.large-button::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* This will make the element height equal to its width */
+/*} */
+
+.large-button {
+  position:relative;
+  z-index: 1;
+  display: grid; /*necessary because the anchor tag is an inline element*/
+  place-items: center; /* a shorthand for align-items: center; justify-items: center; */
+  padding-inline: 2em; /* This, in conjunction with "aspect-ratio:1" controls the size of the circle*/
+  border-radius: 50%; /* This makes the element a circle */
+  aspect-ratio: 1; /* This makes height and width equal */
+  text-decoration: none;
+}
+
+.large-button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: hsl(var(--color-white), 0.15);
+  opacity: 0;;
+  height: 100%;
+  width:100%;
+  border-radius: inherit;
+  transition: opacity 0.5s ease-in-out, transform 0.7s ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after{
+  transform: scale(1.5); /* a smoother transition than redeclaring height and width at 150% */
+  opacity: 1;
 }
 
 
 
-
-.box {
-  padding: 1rem;
-  border: 1px solid var(--color-primary);
-  border-radius: 0.5rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  text-align: center;
-}
