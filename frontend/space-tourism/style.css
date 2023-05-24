@@ -208,23 +208,7 @@ select {
 /*     Components     */
 /*--------------------*/
 
-
-
-/* .large-button {
-  border-radius: 50%;
-  border: 0;
-  padding: 3rem;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.large-button::before {
-  content: "";
-  display: block;
-  padding-top: 100%; /* This will make the element height equal to its width */
-/*} */
-
+/*--- Large Button ---*/
 .large-button {
   position:relative;
   z-index: 1;
@@ -253,6 +237,115 @@ select {
   transform: scale(1.5); /* a smoother transition than redeclaring height and width at 150% */
   opacity: 1;
 }
+
+.primary-navigation {
+  --gap: 8rem;
+  --underline-gap: 2rem;
+  background-color: hsl(var(--color-white), 0.1);
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*--- Primary Navigation ---*/
+.primary-navigation a {
+  text-decoration: none;
+}
+
+.primary-navigation a > span {
+  font-weight: 700;
+  margin-right: .5em;
+}
+
+
+/*--- Underline Indicators ---*/
+.underline-indicators {
+  padding: var(--underline-gap, 1em) 0;
+  border-top: none;
+  border-inline: none;
+  border-bottom: .2rem solid hsl( var(--color-white),0 );
+  cursor: pointer;
+}
+
+
+.underline-indicators:hover{
+  border-color: hsl( var(--color-white), 0.25);
+}
+
+.underline-indicators.active,
+.underline-indicators.active:hover {
+  border-color: hsl( var(--color-white), 1);
+  color: hsl( var(--color-white), 1);
+}
+
+/*--- Tabs ---*/
+.tab-list {
+  --gap: 2.75rem;
+}
+
+/*--- Slider-DOTS ---*/
+.dot-indicators {
+  aspect-ratio: 1;
+  padding: .5rem;
+  border-radius: 50%;
+  background-color: hsl(var(--color-white), 0.25);
+  cursor: pointer;
+  border: none;
+}
+
+.dot-indicators:hover {
+  background-color: hsl(var(--color-white), 0.5);
+}
+
+.dot-indicators[aria-selected="true"],
+.dot-indicators.active {
+  background-color: hsl(var(--color-white), 1);
+}
+
+/*--- Slider-NUMBERS ---*/
+.number-indicators {
+  font-size: var(--fs-600);
+  font-family: var(--ff-serif);
+  aspect-ratio: 1;
+  height: 2em;
+  border-radius: 50%;
+  border: 2px solid hsl(var(--color-white), 0.25);
+  background-color: hsl(var(--color-dark));
+  color: hsl(var(--color-white));
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-indicators:hover,
+.number-indicators:focus {
+  border-color: hsl(var(--color-white), 0.5);
+}
+
+.number-indicators[aria-selected="true"],
+.number-indicators.active {
+  aspect-ratio: 1;
+  border: 2px solid hsl(var(--color-white), 1);
+  background-color: hsl(var(--color-white));
+  color: hsl(var(--color-dark));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

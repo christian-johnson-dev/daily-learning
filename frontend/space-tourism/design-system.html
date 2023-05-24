@@ -85,12 +85,13 @@
         <!-- Navigation -->
         <div>
           <nav>
-            <ul class="primary-navigation flex uppercase fs-300 ff-sans-cond letter-spacing-2 text-white">
-              <li><a href="#">Active</a></li>
-              <li><a href="#">Hover</a></li>
-              <li><a href="#">Idle</a></li>
+            <ul class="primary-navigation flex">
+                <li class="active underline-indicators"><a class="uppercase text-white letter-spacing-2" href="#"><span>01</span>Active</a>
+                <li class="underline-indicators"><a class="uppercase text-white letter-spacing-2" href="#"><span>02</span>Hovered</a>
+                <li class="underline-indicators"><a class="uppercase text-white letter-spacing-2" href="#"><span>03</span>Idle</a>
             </ul>
           </nav>
+
         </div>
 
         <div class="flex">
@@ -98,14 +99,27 @@
             <!-- explore button -->
             <a href="#" class="large-button fs-600 ff-serif uppercase bg-white text-dark letter-spacing-3" >Explore</a>
           </div>
-          <div>
+          <div class="flow" style="margin-bottom: 50vh; --flow-space: 4rem">
             <!-- Tabs -->
-
+            <div class="tab-list flex">
+              <button aria-selected="true" class="underline-indicators uppercase text-accent letter-spacing-2 bg-dark active">Mars</button>
+              <button aria-selected="false" class="underline-indicators uppercase text-accent letter-spacing-2 bg-dark">Moon</button>
+              <button aria-selected="false" class="underline-indicators uppercase text-accent letter-spacing-2 bg-dark">Europa</button>
+            </div>
 
             <!-- Dots -->
-
+            <div class="flex">
+              <button aria-selected="true" class="dot-indicators active"><span class="sr-only">Slide Title</span></button>
+              <button aria-selected="false" class="dot-indicators"><span class="sr-only">Slide Title</span></button>
+              <button aria-selected="false" class="dot-indicators"><span class="sr-only">Slide Title</span></button>
+            </div>
 
             <!-- Numbers -->
+            <div class="flex">
+              <button aria-selected="true" class="number-indicators active">1</button>
+              <button aria-selected="false" class="number-indicators">2</button>
+              <button aria-selected="false" class="number-indicators">3</button>
+            </div>
           </div>
         </div>
       </section>
